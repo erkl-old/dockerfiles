@@ -15,8 +15,7 @@ TAG=`echo "$FULL" | cut -d: -f2`
 mkdir -p .tmp
 cp "$1" .tmp/Dockerfile
 
-docker build -t="$REPO:$TAG" .tmp
-docker tag "$REPO:$TAG" "$REPO:latest"
+docker build -t="$REPO:$TAG" .tmp && docker tag "$REPO:$TAG" "$REPO:latest"
 
 # cleanup
 rm -rf .tmp
